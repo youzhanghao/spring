@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 默认构造函数构建 -->
+    <!-- byType只有一个类型 或 多个声明primary -->
+    <!--<bean class="com.learn.spring.HelloSpring" autowire="byType"></bean>-->
+
+    <!--<bean class="com.learn.spring.Hi"></bean>-->
+
+    <!-- byName指定 -->
+    <!--<bean class="com.learn.spring.HelloSpring" autowire="byName"></bean>-->
+
+    <!--<bean id="hi" class="com.learn.spring.Hi"></bean>-->
+
+    <!-- 指定构造函数构建 -->
+    <bean class="com.learn.spring.HelloSpring" autowire="constructor"></bean>
+
+    <!-- 指定构造函数构建 -->
+    <bean class="com.learn.spring.HelloSpring">
+        <constructor-arg index="0" value="htt" />
+        <constructor-arg name="sex"  value="1" />
+    </bean>
+    <bean class="com.learn.spring.HelloSpring" factory-method="build" >
+        <constructor-arg name="type" value="A"></constructor-arg>
+    </bean>
+
+    <bean id="driver" class="com.learn.spring.DriverFactoryBean">
+    <property name="jdbcUrl" value="jdbc:mysql://localhost:3306"></property>
+    </bean>
+</beans>
